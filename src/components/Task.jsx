@@ -9,6 +9,8 @@ const Task = ({ task }) => {
   const [editedTask, setEditedTask] = useState({
     name: task.name,
     description: task.description,
+    dueDate: task.dueDate,
+    priority: task.priority,
   });
 
   const handleEdit = () => {
@@ -21,7 +23,13 @@ const Task = ({ task }) => {
   };
 
   const handleSaveEdit = () => {
-    dispatch(updateTask({ taskId: task.id, updatedTask: editedTask }));
+    dispatch(
+      updateTask({
+        taskId: task.id,
+        updatedTask: editedTask,
+        createdDate: new Date().toISOString(),
+      })
+    );
     setIsEditing(false);
   };
 
@@ -51,6 +59,28 @@ const Task = ({ task }) => {
               }
               className="editable-textarea"
             />
+            <input
+              type="date"
+              value={editedTask.dueDate}
+              onChange={(e) =>
+                setEditedTask({ ...editedTask, dueDate: e.target.value })
+              }
+              className="editable-input"
+            />
+            <select
+              value={editedTask.priority}
+              onChange={(e) =>
+                setEditedTask({
+                  ...editedTask,
+                  priority: Number(e.target.value),
+                })
+              }
+              className="editable-select"
+            >
+              <option value={0}>High</option>
+              <option value={1}>Medium</option>
+              <option value={2}>Low</option>
+            </select>
             <button
               onClick={handleSaveEdit}
               className="editable-button save-button"
@@ -73,8 +103,16 @@ const Task = ({ task }) => {
             >
               {task.name}
             </span>
+
             <p className="task-description">{task.description}</p>
-            <button onClick={handleEdit} className="edit-button">
+            <p className="created-date">Created: {task.createdDate}</p>
+            <p className="due-date">Due: {task.dueDate}</p>
+            <p className="priority">Priority: {task.priority}</p>
+            <button
+              onClick={handleEdit}
+              className="edit-button"
+              disabled={task.completed}
+            >
               Edit
             </button>
           </div>

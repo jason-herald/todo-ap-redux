@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import CompletedTasksPage from "./pages/CompletedTasksPage";
 import PendingTasksPage from "./pages/PendingTasksPage";
+import TasksDueTodayPage from "./pages/TasksDueTodayPage";
 import "./styles.css";
 import "./index.css";
 
@@ -18,6 +19,9 @@ const App = () => {
           <Link to="/pending" className="nav-link">
             Pending Tasks
           </Link>
+          <Link to="/due-today" className="nav-link">
+            Today
+          </Link>
           <Link to="/completed" className="nav-link">
             Completed Tasks
           </Link>
@@ -26,6 +30,7 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/pending" element={<PendingTasksPage />} />
           <Route path="/completed" element={<CompletedTasksPage />} />
+          <Route path="/due-today" element={<TasksDueTodayPage />} />
         </Routes>
       </div>
     </Router>

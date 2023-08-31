@@ -6,6 +6,8 @@ import "./TaskForm.css";
 const TaskForm = () => {
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
+  const [dueDate, setDueDate] = useState("");
+  const [priority, setPriority] = useState(0);
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
@@ -16,11 +18,16 @@ const TaskForm = () => {
           name: taskName,
           description: taskDescription,
           id: Date.now(),
+          dueDate: dueDate,
           completed: false,
+          priority: priority,
+          createdDate: new Date().toISOString(),
         })
       );
       setTaskName("");
       setTaskDescription("");
+      setDueDate("");
+      setPriority(0);
     }
   };
 
@@ -44,6 +51,25 @@ const TaskForm = () => {
           value={taskDescription}
           onChange={(e) => setTaskDescription(e.target.value)}
         />
+        <label htmlFor="dueDate">Due Date:</label>
+        <input
+          type="date"
+          id="dueDate"
+          value={dueDate}
+          onChange={(e) => setDueDate(e.target.value)}
+          required
+        />
+        <label htmlFor="priority">Priority:</label>
+        <select
+          id="priority"
+          value={priority}
+          onChange={(e) => setPriority(Number(e.target.value))}
+          required
+        >
+          <option value={0}>High</option>
+          <option value={1}>Medium</option>
+          <option value={2}>Low</option>
+        </select>
         <button type="submit" className="task-button">
           Add Task
         </button>
