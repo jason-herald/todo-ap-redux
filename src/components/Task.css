@@ -5,6 +5,13 @@
   border-bottom: 1px solid #f2f2f2;
   transition: background-color 0.2s ease-in-out;
 }
+.task-name {
+  font-weight: bold;
+  font-size: 20px;
+}
+.completed-task-name {
+  text-decoration: line-through;
+}
 
 .task:hover {
   background-color: #f2f2f2;
@@ -18,15 +25,17 @@
 }
 
 .task-checkbox {
+  width: 20px;
+  height: 20px;
   margin-right: 10px;
 }
 
 .task-details {
-  flex-grow: 1;
+  flex-grow: 0;
 }
 
 .editable-section {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   align-items: flex-start;
 }
@@ -80,6 +89,7 @@
 }
 
 .delete-button {
+  margin-top: 5px;
   background-color: #dc3545;
   color: #fff;
   padding: 5px 10px;
@@ -111,3 +121,18 @@
   background-color: #ccc;
   cursor: not-allowed;
 }
+
+.high-priority {
+    color: red; /
+  }
+  
+  .medium-priority {
+    color: orange;
+  }
+  
+  .low-priority {
+    color: green; 
+  }
+  .task-description, .created-date, .due-date {
+  color: #6c757d;
+  }

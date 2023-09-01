@@ -8,8 +8,7 @@ const PendingTasksPage = () => {
 
   return (
     <div className="container">
-      <h2>Pending Tasks</h2>
-      <TaskList tasks={pendingTasks} />
+      <TaskList tasks={pendingTasks} title="Pending Tasks" />
     </div>
   );
 };

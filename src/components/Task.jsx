@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+
 import { deleteTask, toggleTask, updateTask } from "../store/actions";
 import "./Task.css";
+import { priorityToString, getPriorityClass } from "../helpers/priority";
 
 const Task = ({ task }) => {
   const dispatch = useDispatch();
@@ -23,6 +25,14 @@ const Task = ({ task }) => {
   };
 
   const handleSaveEdit = () => {
+    if (
+      editedTask.name.trim() === "" ||
+      editedTask.dueDate === "" ||
+      editedTask.priority === ""
+    ) {
+      alert("Name, Due Date, and Priority cannot be empty.");
+      return;
+    }
     dispatch(
       updateTask({
         taskId: task.id,
@@ -62,6 +72,7 @@ const Task = ({ task }) => {
             <input
               type="date"
               value={editedTask.dueDate}
+              min={new Date().toISOString().split("T")[0]}
               onChange={(e) =>
                 setEditedTask({ ...editedTask, dueDate: e.target.value })
               }
@@ -107,7 +118,10 @@ const Task = ({ task }) => {
             <p className="task-description">{task.description}</p>
             <p className="created-date">Created: {task.createdDate}</p>
             <p className="due-date">Due: {task.dueDate}</p>
-            <p className="priority">Priority: {task.priority}</p>
+            <p className={`priority ${getPriorityClass(task.priority)}`}>
+              Priority: {priorityToString(task.priority)}
+            </p>
+
             <button
               onClick={handleEdit}
               className="edit-button"
@@ -117,13 +131,13 @@ const Task = ({ task }) => {
             </button>
           </div>
         )}
+        <button
+          onClick={() => dispatch(deleteTask(task.id))}
+          className="delete-button"
+        >
+          Delete
+        </button>
       </div>
-      <button
-        onClick={() => dispatch(deleteTask(task.id))}
-        className="delete-button"
-      >
-        Delete
-      </button>
     </div>
   );
 };

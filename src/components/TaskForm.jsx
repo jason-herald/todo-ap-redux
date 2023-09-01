@@ -56,6 +56,7 @@ const TaskForm = () => {
           type="date"
           id="dueDate"
           value={dueDate}
+          min={new Date().toISOString().split("T")[0]}
           onChange={(e) => setDueDate(e.target.value)}
           required
         />

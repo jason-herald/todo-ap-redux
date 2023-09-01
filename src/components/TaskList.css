@@ -12,11 +12,11 @@
 .sort-filter-section select,
 .sort-filter-section input[type="date"] {
   padding: 5px;
+  margin: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
 .task-list p {
   font-size: 16px;
-  color: #6c757d;
 }

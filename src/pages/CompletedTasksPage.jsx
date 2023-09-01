@@ -8,8 +8,7 @@ const CompletedTasksPage = () => {
 
   return (
     <div className="container">
-      <h2>Completed Tasks</h2>
-      <TaskList tasks={completedTasks} />
+      <TaskList tasks={completedTasks} title="Completed Tasks" />
     </div>
   );
 };

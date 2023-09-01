@@ -5,11 +5,15 @@ import { useSelector } from "react-redux";
 
 const HomePage = () => {
   const tasks = useSelector((state) => state.tasks);
-  console.log(tasks);
+
   return (
     <>
-      <TaskForm />
-      <TaskList tasks={tasks} title="All Tasks" />
+      <div className="home-container">
+        <div className="add-task">
+          <TaskForm />
+        </div>
+        <TaskList tasks={tasks} title="All Tasks" />
+      </div>
     </>
   );
 };

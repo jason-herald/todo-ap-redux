@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Task from "./Task";
 import "./TaskList.css";
 
-const TaskList = ({ tasks, title }) => {
+const TaskList = ({ tasks, title, showFilters = true }) => {
   const [sortBy, setSortBy] = useState("none");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -46,31 +46,33 @@ const TaskList = ({ tasks, title }) => {
   return (
     <div className="task-list">
       <h2>{title}</h2>
-      <div className="sort-filter-section">
-        <div>
-          Sort by:
-          <select value={sortBy} onChange={handleSortChange}>
-            <option value="none">None</option>
-            <option value="dueDate">Due Date</option>
-            <option value="priority">Priority</option>
-          </select>
+      {showFilters && (
+        <div className="sort-filter-section">
+          <div>
+            Sort by:
+            <select value={sortBy} onChange={handleSortChange}>
+              <option value="none">None</option>
+              <option value="dueDate">Due Date</option>
+              <option value="priority">Priority</option>
+            </select>
+          </div>
+          <div>
+            Filter by due date range:
+            <input
+              type="date"
+              value={startDate}
+              onChange={handleStartDateChange}
+              placeholder="Start Date"
+            />
+            <input
+              type="date"
+              value={endDate}
+              onChange={handleEndDateChange}
+              placeholder="End Date"
+            />
+          </div>
         </div>
-        <div>
-          Filter by due date range:
-          <input
-            type="date"
-            value={startDate}
-            onChange={handleStartDateChange}
-            placeholder="Start Date"
-          />
-          <input
-            type="date"
-            value={endDate}
-            onChange={handleEndDateChange}
-            placeholder="End Date"
-          />
-        </div>
-      </div>
+      )}
       {sortedTasks.length === 0 ? (
         <p>No tasks available.</p>
       ) : (
