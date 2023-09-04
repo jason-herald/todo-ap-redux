@@ -35,7 +35,6 @@
 }
 
 .editable-section {
-  /* display: flex; */
   flex-direction: column;
   align-items: flex-start;
 }
@@ -62,19 +61,19 @@
 }
 
 .editable-button.save-button {
-  background-color: #28a745;
+  background-color: #6fc276;
 }
 
 .editable-button.cancel-button {
-  background-color: #ffc107;
+  background-color: #fdc96f;
 }
 
 .editable-button:hover {
-  background-color: #c82333;
+  background-color: #1c92d2;
 }
 
 .edit-button {
-  background-color: #ffc107;
+  background-color: #fdc96f;
   color: #fff;
   padding: 5px 10px;
   border: none;
@@ -85,12 +84,12 @@
 }
 
 .edit-button:hover {
-  background-color: #e0a800;
+  background-color: #957c51;
 }
 
 .delete-button {
   margin-top: 5px;
-  background-color: #dc3545;
+  background-color: #bf616f;
   color: #fff;
   padding: 5px 10px;
   border: none;
@@ -101,7 +100,7 @@
 }
 
 .delete-button:hover {
-  background-color: #c82333;
+  background-color: #964e59;
 }
 .editable-input[type="date"] {
   width: 100%;
@@ -123,16 +122,18 @@
 }
 
 .high-priority {
-    color: red; /
-  }
-  
-  .medium-priority {
-    color: orange;
-  }
-  
-  .low-priority {
-    color: green; 
-  }
-  .task-description, .created-date, .due-date {
+  color: #ff9b9b;
+}
+
+.medium-priority {
+  color: #f5ca7b;
+}
+
+.low-priority {
+  color: #6fc276;
+}
+.task-description,
+.created-date,
+.due-date {
   color: #6c757d;
-  }
+}

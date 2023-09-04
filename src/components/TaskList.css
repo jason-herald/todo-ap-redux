@@ -1,5 +1,9 @@
 .task-list {
   padding: 20px;
+  background-color: white;
+  height: 80vh;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .sort-filter-section {
@@ -19,4 +23,22 @@
 
 .task-list p {
   font-size: 16px;
+}
+
+.task-list-scrollable {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.clear-filter-button {
+  padding: 5px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  background-color: #e76d89;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.clear-filter-button:hover {
+  background-color: #83112b;
 }

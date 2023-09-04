@@ -15,14 +15,17 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router>
-        <Navbar />
-
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/pending" element={<PendingTasksPage />} />
-          <Route path="/completed" element={<CompletedTasksPage />} />
-          <Route path="/due-today" element={<TasksDueTodayPage />} />
-        </Routes>
+        <div className="app">
+          <Navbar />
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/pending" element={<PendingTasksPage />} />
+              <Route path="/completed" element={<CompletedTasksPage />} />
+              <Route path="/due-today" element={<TasksDueTodayPage />} />
+            </Routes>
+          </div>
+        </div>
       </Router>
     </Provider>
   );

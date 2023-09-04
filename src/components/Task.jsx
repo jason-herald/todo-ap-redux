@@ -8,12 +8,17 @@ import { priorityToString, getPriorityClass } from "../helpers/priority";
 const Task = ({ task }) => {
   const dispatch = useDispatch();
   const [isEditing, setIsEditing] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
   const [editedTask, setEditedTask] = useState({
     name: task.name,
     description: task.description,
     dueDate: task.dueDate,
     priority: task.priority,
   });
+
+  const toggleDetails = () => {
+    setShowDetails(!showDetails);
+  };
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -107,28 +112,34 @@ const Task = ({ task }) => {
           </div>
         ) : (
           <div className="editable-section">
-            <span
-              className={`task-name ${
-                task.completed ? "completed-task-name" : ""
-              }`}
-            >
-              {task.name}
-            </span>
+            <div className="task-summary" onClick={toggleDetails}>
+              <span
+                className={`task-name ${
+                  task.completed ? "completed-task-name" : ""
+                } ${getPriorityClass(task.priority)}`}
+              >
+                {task.name}
+              </span>
+              <p className="due-date">Due: {task.dueDate}</p>
+            </div>
+            {showDetails && (
+              <div className="details">
+                <p className="task-description">{task.description}</p>
+                <p className="created-date">Created: {task.createdDate}</p>
 
-            <p className="task-description">{task.description}</p>
-            <p className="created-date">Created: {task.createdDate}</p>
-            <p className="due-date">Due: {task.dueDate}</p>
-            <p className={`priority ${getPriorityClass(task.priority)}`}>
-              Priority: {priorityToString(task.priority)}
-            </p>
+                <p className={`priority ${getPriorityClass(task.priority)}`}>
+                  Priority: {priorityToString(task.priority)}
+                </p>
 
-            <button
-              onClick={handleEdit}
-              className="edit-button"
-              disabled={task.completed}
-            >
-              Edit
-            </button>
+                <button
+                  onClick={handleEdit}
+                  className="edit-button"
+                  disabled={task.completed}
+                >
+                  Edit
+                </button>
+              </div>
+            )}
           </div>
         )}
         <button

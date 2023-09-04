@@ -1,23 +1,13 @@
-html,
-body {
-  min-height: 100%;
-}
-
 body {
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
-
-  height: 100vh;
 }
 
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .header {
@@ -28,15 +18,11 @@ body {
 .home-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background-color: #fff;
+
   column-gap: 20px;
   border-radius: 8px;
   height: 100vh;
-  /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); */
-  padding: 20px;
-}
 
-.add-task {
   padding: 20px;
 }
 
@@ -49,4 +35,18 @@ body {
     grid-template-columns: 1fr;
     column-gap: 0;
   }
+}
+.app {
+  position: relative;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+.content {
+  padding: 20px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #1c92d2, #f2fcfe);
 }

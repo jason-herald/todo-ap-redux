@@ -1,56 +1,5 @@
-.task-form {
-  margin-bottom: 20px;
-  /* background-color: #fff; */
-  padding: 20px;
-  border-radius: 8px;
-  /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); */
-}
-
-.task-form h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.task-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.task-button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.task-button:hover {
-  background-color: #0056b3;
-}
-.task-form label {
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
-.task-form input[type="date"],
-.task-form input[type="text"],
-.task-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
 .task-form button {
-  background-color: #007bff;
+  background-color: #1c92d2;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -58,16 +7,63 @@
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 }
-.task-form label,
-.task-form select {
-  font-size: 16px;
-  margin-bottom: 5px;
+.task-button:hover {
+  background-color: #155d84;
+}
+.task-form {
+  max-width: auto;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
-.task-form select {
-  width: 100%;
-  padding: 10px;
+.form-row {
+  display: flex;
+  align-items: center;
   margin-bottom: 10px;
+}
+
+.form-row label {
+  width: 120px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.form-row .task-input {
+  flex: 1;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-row .task-input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.form-row select {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-row textarea {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.task-form input[type="date"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
 }

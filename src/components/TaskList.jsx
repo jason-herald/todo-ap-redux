@@ -7,6 +7,10 @@ const TaskList = ({ tasks, title, showFilters = true }) => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
+  const handleClearFilters = () => {
+    setStartDate("");
+    setEndDate("");
+  };
   const handleSortChange = (e) => {
     setSortBy(e.target.value);
   };
@@ -57,7 +61,7 @@ const TaskList = ({ tasks, title, showFilters = true }) => {
             </select>
           </div>
           <div>
-            Filter by due date range:
+            Filter by due date:
             <input
               type="date"
               value={startDate}
@@ -70,14 +74,22 @@ const TaskList = ({ tasks, title, showFilters = true }) => {
               onChange={handleEndDateChange}
               placeholder="End Date"
             />
+            <button
+              className="clear-filter-button"
+              onClick={handleClearFilters}
+            >
+              X
+            </button>
           </div>
         </div>
       )}
-      {sortedTasks.length === 0 ? (
-        <p>No tasks available.</p>
-      ) : (
-        sortedTasks.map((task) => <Task key={task.id} task={task} />)
-      )}
+      <div className="task-list-scrollable">
+        {sortedTasks.length === 0 ? (
+          <p>No tasks available.</p>
+        ) : (
+          sortedTasks.map((task) => <Task key={task.id} task={task} />)
+        )}
+      </div>
     </div>
   );
 };
