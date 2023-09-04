@@ -35,4 +35,4 @@ npm run dev
 
 ### Demo
 
-- Find the app hosted on [vercel](https://todo-app-redux-ondio4k24-jason-herald.vercel.app/).
+- Find the app hosted on [vercel](https://todo-app-redux-orpin.vercel.app/).
